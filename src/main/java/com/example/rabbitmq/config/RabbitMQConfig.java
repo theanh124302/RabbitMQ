@@ -53,12 +53,13 @@ public class RabbitMQConfig {
     @Bean
     public Binding jsonBinding(){
         return BindingBuilder
-                .bind(queue())
+                .bind(jsonQueue())
                 .to(exchange())
                 .with(jsonRoutingKey);
     }
 
-    public Jackson2JsonMessageConverter converter(){
+    @Bean
+    public MessageConverter converter(){
         return new Jackson2JsonMessageConverter();
     }
 
@@ -68,5 +69,4 @@ public class RabbitMQConfig {
         rabbitTemplate.setMessageConverter(converter());
         return rabbitTemplate;
     }
-
 }

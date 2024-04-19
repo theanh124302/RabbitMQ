@@ -20,7 +20,7 @@ public class JsonMessageController {
 
     // http://localhost:8080/api/v1/publish/json
     @PostMapping("/publish/json")
-    public ResponseEntity<String> sendJsonMessage(@RequestBody User user){
+    public ResponseEntity<String> sendJsonMessage(@RequestBody User user) {
         jsonProducer.sendJsonMessage(user);
         return ResponseEntity.ok("Message sent to RabbitJsonMQ ...");
     }
