@@ -2,7 +2,6 @@ package com.example.rabbitmq.controller;
 
 import com.example.rabbitmq.dto.User;
 import com.example.rabbitmq.publisher.RabbitMQJsonProducer;
-import com.example.rabbitmq.publisher.RabbitMQProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,6 +22,12 @@ public class JsonMessageController {
     public ResponseEntity<String> sendJsonMessage(@RequestBody User user) {
         jsonProducer.sendJsonMessage(user);
         return ResponseEntity.ok("Message sent to RabbitJsonMQ ...");
+    }
+
+    @GetMapping("/publish")
+    public ResponseEntity<String> sendMessage(@RequestParam("message") String message){
+        jsonProducer.sendMessage(message);
+        return ResponseEntity.ok("Message sent to RabbitMQ ...");
     }
 
 }

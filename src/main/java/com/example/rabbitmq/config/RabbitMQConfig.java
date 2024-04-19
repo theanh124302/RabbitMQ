@@ -32,18 +32,18 @@ public class RabbitMQConfig {
         return new DirectExchange(exchange);
     }
 
-    @Bean
-    public Queue queue(){
-        return new Queue(queue);
-    }
-
-    @Bean
-    public Binding binding(){
-        return BindingBuilder
-                .bind(queue())
-                .to(exchange())
-                .with(routingKey);
-    }
+//    @Bean
+//    public Queue queue(){
+//        return new Queue(queue);
+//    }
+//
+//    @Bean
+//    public Binding binding(){
+//        return BindingBuilder
+//                .bind(queue())
+//                .to(exchange())
+//                .with(routingKey);
+//    }
 
     @Bean
     public Queue jsonQueue(){
